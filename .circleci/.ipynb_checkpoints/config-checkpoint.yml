@@ -11,6 +11,7 @@ jobs:
     steps:
       - node/install
       - checkout
+      - aws-cli/setup
       # install dependencies in both apps
       - run:
           name: hello
@@ -32,3 +33,7 @@ jobs:
           name: Back-End Build
           command: |
             npm run backend:build
+      - run:
+          name: Frony-End Deploy App
+          command: |
+            npm run frontend:deploy
